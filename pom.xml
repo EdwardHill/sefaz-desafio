@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.sefaz.desafio</groupId>
-	<artifactId>sefaz.desafio</artifactId>
+	<artifactId>sefaz-desafio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sefazdesafio</name>
+	<name>sefaz-desafio</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
