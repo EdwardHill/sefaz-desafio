@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Sefaz.Desafio</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<link rel="shortcut icon" href="/icons/favicon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="materialize/css/materialize.css" />
+<link rel="stylesheet" href="style/styleCss.css" />
+</head>
+<body>
+
+	<!--Script para o drop down list  -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	
+	 $(document).ready(function(){
+		    $('select').formSelect();
+		  });
+
+	
+	</script>
+	<th:block th:include="header" />
+
+	<main>
+
+	<h4 class="center titulo">
+		Detalhes de <span th:text="${usuario.nome}"></span>
+	</h4>
+
+	<div class="container  ">
+
+		<div th:each=" usuario : ${usuario}"
+			class="container detalhesUsuario ">
+			<div class="editBtn">
+				<ul>
+
+					<li><a class="waves-effect waves-light btn-small"
+						th:href="${(#mvc.url('UC#editUsuario').arg(0, usuario.id)).build()} ">Editar
+							Perfil <i class="  material-icons right">edit</i>
+					</a></li>
+				</ul>
+			</div>
+			<div class="perfil">
+
+				<p>
+					<b>Nome: </b> <span th:text="${usuario.nome}"></span>
+				</p>
+				<p>
+					<b>E-mail: </b> <span th:text="${usuario.email}"></span>
+				</p>
+
+			</div>
+
+		</div>
+		<div  th:if="${not telefones.isEmpty()}">
+		<h5 class="titulo">Telefones do Usuário</h5>
+		<table class="container tableT highlight"  >
+				
+			
+			</thead>
+				<tr>
+					<th>DDD</th>
+					<th>Número</th>
+					<th>Tipo</th>
+					<th>Editar</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=" telefone : ${telefones}">
+					<td><span th:text="${telefone.ddd}"></span></td>
+					<td><span th:text="${telefone.numero}"></span></td>
+					<td><span th:text="${telefone.tipo}"></span></td>
+
+					<td><a th:href="${(#mvc.url('UC#editarTelefone').arg(0, telefone.id)).build()}"><i class=" small material-icons">edit</i></a></td>
+					<td><a
+						th:href="${(#mvc.url('UC#deletarTelefone').arg(0, telefone.id)).build()} "><i
+							class=" aviso small  material-icons">delete_forever</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="center">
+			<ul class="pagination">
+				<li th:each="i: ${#numbers.sequence(0,telefones.totalPages-1)}"
+					th:classappend="${paginaAtual}==${i}?'active':''"><a
+					th:href="@{${id}(page=${i})}" th:text="${i}" class="nav-link"></a>
+				</li>
+			</ul>
+		</div>
+		</div>
+		<div class="titulo2">
+		<h5 class="center">Adicionar Telefone</h5>
+		<a class="center"><th:block th:include="mensagemValidacao" /></a>
+		</div>
+		
+		<div class="container formTelefone">
+
+			<form method="post" th:object="${telefone}">
+
+
+				<div class="row">
+					<div class="input-field col s2 ">
+						<input type="text" maxlength="3" size="3" id="ddd" name="ddd"
+							require="ddd" placeholder="(000)" /> <label for="ddd">DDD</label>
+					</div>
+					<div class="input-field col s4">
+						<input type="text" class="telefone" maxlength="9" size="9"
+							name="numero" id="numero" require="numero"
+							placeholder="(00000-0000)" /> <label for="numero">Numero:</label>
+
+						
+					</div>
+					<div class="input-field col s4">
+					<select id="tipo" name="tipo" path="tipo">
+							<option value="" disabled selected>Tipo</option>
+							<option
+								th:each="tipo : ${T(br.com.sefaz.desafio.models.Tipo).values()}"
+								th:value="${tipo}" th:text="${tipo.getTipo()}"></option>
+						</select> <label>Tipo:</label>
+					</div>
+
+					
+				</div>
+				<div class="button2">
+					<button class="waves-effect waves-light btn" type="submit">
+						<i class="material-icons right">add_circle</i>Salvar
+					</button>
+					</div>
+				
+			</form>
+		</div>
+	</div>
+
+
+
+
+	</main>
+	<th:block th:include="footer" />
+</body>
+
+
+</html>

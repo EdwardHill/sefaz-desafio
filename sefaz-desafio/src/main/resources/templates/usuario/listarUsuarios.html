@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Sefaz.Desafio</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+	<link rel="shortcut icon" href="/icons/favicon.ico"/>
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="materialize/css/materialize.css" />
+<link rel="stylesheet" href="style/styleCss.css"/>
+<meta charset="UTF-8">
+		<title>Lista de Usuários</title>
+		
+</head>
+<body>
+
+<th:block th:include="header" />
+<main>	
+<h4 class="center">Lista de Usuários</h4>
+	<div th:if="${ not usuarios.isEmpty()}">	<!--Evita mostrar a tabela  de usuários, caso não houver  algum usuário cadastrado   -->
+	<table class="container highlight" id="usuariostable">
+		<thead>
+			<tr>
+				<th class="center">Nome</th>
+				<th >Email</th>
+				<th>Editar</th>
+				<th>Deletar</th> 
+			</tr>
+			<tbody>
+		</thead>
+	<tr th:each=" usuario : ${usuarios}">
+		
+		<td  class="center" ><b><a th:href="${(#mvc.url('UC#detalhesUsuario').arg(0, usuario.id)).build()}"<span th:text="${usuario.nome}"></span></a></b></td> 
+		<td  ><b><span th:text="${usuario.email}"></span></b></td>
+			<td><a th:href="${(#mvc.url('UC#editUsuario').arg(0, usuario.id)).build()} "><i class=" small material-icons">edit</i></a></td>
+			<td><a th:href="${(#mvc.url('UC#deletarUsuario').arg(0, usuario.id)).build()} "><i class=" aviso small material-icons left">delete_forever</i></a></td> 
+
+		</tr>
+		</tbody>
+		</table>
+		
+	
+			<div class="center">
+
+		<ul class="pagination">
+		
+			<li  th:each="i: ${#numbers.sequence(0,usuarios.totalPages-1)}"  th:classappend="${pgat}==${i}?'active':''">
+			<a th:href="@{listarUsuarios(page=${i})}" th:text="${i}" class="nav-link"></a>
+			</li>
+				
+		</ul>
+	</div>
+	</div>
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+	</main>
+	<th:block th:include="footer" />
+	
+</body>
+
+
+</html>
