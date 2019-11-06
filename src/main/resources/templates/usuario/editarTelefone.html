@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Sefaz.Desafio</title>
+<link rel="shortcut icon" href="/icons/favicon.ico"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="materialize/css/materialize.css" />
+<link rel="stylesheet" href="style/styleCss.css"/>
+
+</head>
+
+<body>
+
+	<!--Script para o drop down list  -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	
+	 $(document).ready(function(){
+		    $('select').formSelect();
+		  });
+
+	
+	</script>
+	<th:block th:include="header" />
+
+<main>		
+		<div class="titulo2">
+		
+		<h5 class="center">Edição de  Telefone</h5>
+		<h6 class="center titulo">
+			Telefone de <span th:text="${usuario.nome}"></span>
+			
+		</h6>
+		</div>
+		
+		
+		
+		<div class="container formTelefone">
+
+			<form method="post" th:object="${telefone}">
+				<a class="center"><th:block th:include="mensagemValidacao" /></a>
+				
+				<input  type="hidden" id="usuario" name="usuario" th:field="${telefone.usuario}">
+				<div class="row">
+					<div class="input-field col s2 ">
+						<input type="text" maxlength="3" size="3" id="ddd" name="ddd"
+							require="ddd" placeholder="(000)" th:field="*{ddd}"/> <label for="ddd">DDD</label>
+					</div>
+					<div class="input-field col s4">
+						<input type="text" class="telefone" maxlength="9" size="9"
+							name="numero" id="numero" require="numero"
+							placeholder="(00000-0000)" th:field="*{numero}"/> <label for="numero">Numero:</label>
+
+						
+					</div>
+					<div class="input-field col s4">
+					<select id="tipo" name="tipo" path="tipo" th:field="*{tipo}">
+							<option value="" disabled selected>Tipo</option>
+							<option
+								th:each="tipo : ${T(br.com.sefaz.desafio.models.Tipo).values()}"
+								th:value="${tipo}" th:text="${tipo.getTipo()}"></option>
+						</select> <label>Tipo:</label>
+					</div>
+
+					
+				</div>
+				<div class="button2">
+					<button class="waves-effect waves-light btn" type="submit">
+						<i class="material-icons right">add_circle</i>Salvar
+					</button>
+					</div>
+				
+			</form>
+		</div>
+	
+	
+</main>
+<th:block th:include="footer" />
+	
+</body>
+
+
+</html>

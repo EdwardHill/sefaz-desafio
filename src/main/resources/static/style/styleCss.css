@@ -1,0 +1,78 @@
+.detalhesUsuario{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 40px;
+}
+
+.formTelefone{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 40px;
+	padding-left: 6em;
+
+	margin-bottom: 60px;
+	margin-top: 35px; 
+	width: 40%;
+}
+
+.titulo{
+	padding-top: 20px;
+	text-align: center;
+	margin-bottom: 60px;
+	margin-top: 35px; 
+}
+
+.titulo2{
+	padding-top: 5px;
+	text-align: center;
+	margin-bottom: 40px;
+	margin-top: 35px; 
+}
+
+.tableT{
+	text-align: center;
+	width: 50%;
+	margin-bottom: 30px;
+}
+
+.button{
+	padding-top: 10px;
+ 	text-align: center;
+	padding-bottom:10px;
+}
+
+.button2{
+	
+ 	text-align: center;
+ 	padding-right: 28%;
+	padding-bottom:30px;
+}
+
+
+.formUsuario{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 40px;
+
+	margin-bottom: 60px;
+	margin-top: 35px; 
+	width: 33%;
+	
+}
+
+
+.aviso{
+	text-align: center;
+	color:red;
+	
+}
+
+.editBtn{
+	padding-left: 72%;
+}
+
+
+
+
+.perfil{
+	padding-bottom: 40px;
+}
