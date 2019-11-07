@@ -1,4 +1,4 @@
-package br.com.sefaz.desafio.util;
+package br.com.sefaz.desafio;
 
 import java.net.URI;
 import java.net.URISyntaxException;
