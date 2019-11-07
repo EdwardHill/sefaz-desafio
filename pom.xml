@@ -65,10 +65,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-jpa</artifactId>
-			</dependency>
+		
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
@@ -80,11 +77,7 @@
 				<artifactId>hibernate-validator</artifactId>
 				<version>6.0.12.Final</version>
 			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>6.0.12.Final</version>
-			</dependency>		
+				
 			</dependencies>
 
 	<build>
