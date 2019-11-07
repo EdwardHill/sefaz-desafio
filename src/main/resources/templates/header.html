@@ -1,34 +1,73 @@
-    <!DOCTYPE html>
-<html lang="pt"
-		xmlns="http://www.w3.org/1999/xhtml" 
-		xmlns:th="http://thymeleaf.org">
+
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
 <head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
 
+</head>
+<body>
 
-</head>	
-<body>	
-<header>
+	</script>
+	<header>
 
-	
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a href="#!">Entrar</a></li>
+			<li><a href="#!">Sair</a></li>
+			<li class="divider"></li>
+			<li><a href="#!">Sobre</a></li>
+		</ul>
 		<nav>
 			<div class="nav-wrapper light-blue darken-1">
-			
-				<a href="/" class="brand-logo"><img src="icons/logo.png"  style="width:5em ;heigth:5em;"></a>
+
+				<a href="/" class="brand-logo"><img src="icons/logo.png"
+					style="width: 5em; heigth: 5em;"></a> <a href="#"
+					data-target="mobile-links" class="sidenav-trigger"><i
+					class="material-icons">menu</i></a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="cadastrarUsuario" class="waves-effect  light-blue darken-3 btn"><i class="material-icons left">add_circle_outline</i>Cadastro de Usuários</a></li>
-					<li><a href="listarUsuarios"class="waves-effect light-blue darken-3 btn"><i class="material-icons left">view_list</i>Listar Usuários</a></li>
-					<li><a href="entrar">Entrar</a></li>
+					<li><a href="cadastrarUsuario"
+						class="waves-effect  light-blue darken-2 btn"><i
+							class="material-icons left">person_add</i>Adicionar
+							Usuário</a></li>
+					<li><a href="listarUsuarios"
+						class="waves-effect light-blue darken-2 btn"><i
+							class="material-icons left">view_list</i>Listar Usuários</a></li>
+					 <li><a class="dropdown-trigger waves-effect" href="#!" data-target="dropdown1"><i class="medium material-icons" >account_circle arrow_drop_down</i></a></li>
+					
 				</ul>
 			</div>
-
-
 		</nav>
+		<ul class="sidenav" id="mobile-links">
+			<li><a href="#" class="waves-effect"><i
+					class="material-icons">account_circle</i>Entrar</a></li>
+			<li><a href="cadastrarUsuario" class="waves-effect"><i
+					class="material-icons ">person_add</i>Adicionar Usuário</a></li>
+			<li><a href="listarUsuarios" class="waves-effect "><i
+					class="material-icons ">view_list</i>Listar Usuários</a></li>
+			<li><a href="#" class="waves-effect"><i
+					class="material-icons">exit_to_app</i>Sair</a></li>		
+							
+					
+		</ul>
 
-	
 	</header>
-</body>						
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.sidenav').sidenav();
+		})
+		
+		$( document ).ready(function(){
+		$(".dropdown-trigger").dropdown();
+		})
+	</script>
+	
+</body>
+
 </html>
 
 
 
-	
