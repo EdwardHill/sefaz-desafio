@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.sefaz.desafio</groupId>
 	<artifactId>sefaz-desafio</artifactId>
-	<version>0.0.1-SNAPSHOT</version>z
+	<version>0.0.1-SNAPSHOT</version>
 	<name>sefaz-desafio</name>
 	<description>Demo project for Spring Boot</description>
 
