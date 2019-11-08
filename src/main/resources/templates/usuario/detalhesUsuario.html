@@ -37,14 +37,14 @@
 		Detalhes de <span th:text="${usuario.nome}"></span>
 	</h4>
 
-	<div class="container  ">
+	<div class="container">
 
 		<div th:each=" usuario : ${usuario}"
 			class="container detalhesUsuario ">
 			<div class="editBtn">
 				<ul>
 
-					<li><a class="waves-effect waves-light btn-small"
+					<li><a class="waves-effect waves-light btn "
 						th:href="${(#mvc.url('UC#editUsuario').arg(0, usuario.id)).build()} ">Editar
 							Perfil <i class="  material-icons right">edit</i>
 					</a></li>
