@@ -23,8 +23,6 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)  
-	//@GeneratedValue(generator = "increment")
-	//@GenericGenerator(name = "increment", strategy="increment")
 	private Long id;
 
 	@NotNull (message = "O campo não deve estar vazio!")

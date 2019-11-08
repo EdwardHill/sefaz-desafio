@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
@@ -21,8 +20,6 @@ public class Telefone implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	//@GeneratedValue(generator = "increment")
-	//@GenericGenerator(name = "increment", strategy="increment")
 	private Long id;
 	
 	@NotNull (message = "O campo não deve estar vazio!")
