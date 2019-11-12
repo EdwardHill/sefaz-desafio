@@ -20,10 +20,8 @@ public class Telefone implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	//@GeneratedValue(generator = "increment")  
-	//@GenericGenerator(name = "increment", strategy = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	 
 	private Long id;
 	
