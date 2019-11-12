@@ -42,7 +42,7 @@ public class Usuario implements Serializable {
 	@Size(min=8, max=15, message="A senha deve ter pelo menos 8 Digitos!")
 	private String senha;
 		
-	@OneToMany(mappedBy = "usuario", targetEntity = Telefone.class ,fetch = FetchType.LAZY, cascade ={ CascadeType.REMOVE, CascadeType.PERSIST})
+	@OneToMany(mappedBy = "usuario", targetEntity = Telefone.class ,fetch = FetchType.LAZY, cascade ={ CascadeType.REMOVE, CascadeType.MERGE})
 	private List<Telefone> telefones;
 
 	public Long getId() {
