@@ -2,28 +2,27 @@ package br.com.sefaz.desafio.models;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@SequenceGenerator(name = "telefone_seq", sequenceName = "telefone_id_seq", allocationSize = 1, initialValue = 1)
 public class Telefone implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@GeneratedValue(generator = "telefone_seq")
-	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	
 	@NotNull (message = "O campo não deve estar vazio!")
