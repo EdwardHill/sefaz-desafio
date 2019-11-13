@@ -23,7 +23,7 @@ public class Telefone implements Serializable {
 
 	@Id
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@GeneratedValue(generator = "usuario_seq")
+	@GeneratedValue(generator = "telefone_seq")
 	private Long id;
 	
 	@NotNull (message = "O campo não deve estar vazio!")
