@@ -15,14 +15,14 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-public class Telefone implements Serializable {
+public class Telefone{
 
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 
 	@Id
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "increment")
+	//@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	
 	@NotNull (message = "O campo não deve estar vazio!")
