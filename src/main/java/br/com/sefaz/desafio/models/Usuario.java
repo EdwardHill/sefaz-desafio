@@ -2,35 +2,29 @@ package br.com.sefaz.desafio.models;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.GenericGenerator;
-
 /*Foi  necessária a mudança na estrategia de criação de id para o postgresql no heroku*/
 
 @Entity
+@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_id_seq", allocationSize = 1, initialValue = 1)
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	/*
-	 * @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "increment")
-	 * 
-	 * @GenericGenerator(name = "increment", strategy = "increment")
-	 */
-
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	@GeneratedValue(generator = "usuario_seq")
+	
 	private Long id;
 
 	@NotNull (message = "O campo não deve estar vazio!")
