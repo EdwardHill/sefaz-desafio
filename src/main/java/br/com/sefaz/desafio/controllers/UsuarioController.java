@@ -38,7 +38,7 @@ public class UsuarioController {
 	
 	
 	@RequestMapping(value="/cadastrarUsuario", method=RequestMethod.POST)
-	public ModelAndView salvarUsuario(@Valid Usuario usuario,BindingResult resU, @Valid Telefone telefone, BindingResult resT,RedirectAttributes atts){
+	public ModelAndView salvarUsuario(@Valid Usuario usuario,BindingResult resU,@Valid Telefone telefone,BindingResult resT,RedirectAttributes atts){
 		if(resU.hasErrors()||resT.hasErrors()) {
 			
 			return novoUs(usuario, telefone);

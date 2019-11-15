@@ -38,14 +38,14 @@
 			<input	type="hidden" id="usuario" name="usuario" th:field="${telefone.usuario}">
 			<div class="row">
 				<div class="input-field col s2">
-					<input type="text" maxlength="3" data-mask="(000)" size="3"
+					<input type="text" data-mask="(000)"
 						path="ddd" id="ddd" name="ddd" placeholder="(000)" th:field="${telefone.ddd}" /> <label
 						for="ddd" />DDD</label>
 				</div>
 
 				<div class="input-field col s4">
-					<input type="text" maxlength="9" name="numero"
-						data-mask="00000-0000" id="numero" placeholder="Ex.:00000-0000"
+					<input type="text" maxlength="12" name="numero"
+						data-mask="(00000-0000)" id="numero" placeholder="Ex.:(00000-0000)"
 						autocomplete="off" th:field="${telefone.numero}"/> <label for="numero">Numero:</label>
 				</div>
 				<div class="input-field col s4">
