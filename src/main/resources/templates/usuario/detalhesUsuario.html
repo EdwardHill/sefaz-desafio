@@ -16,19 +16,6 @@
 <link rel="stylesheet" href="style/styleCss.css" />
 </head>
 <body>
-
-	<!--Script para o drop down list  -->
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	<script type="text/javascript">
-	
-	 $(document).ready(function(){
-		    $('select').formSelect();
-		  });
-
-	
-	</script>
 	<th:block th:include="header" />
 
 	<main>
@@ -111,12 +98,12 @@
 				<div class="row">
 					<div class="input-field col s2 ">
 						<input type="text" maxlength="3" size="3" id="ddd" name="ddd"
-							require="ddd" placeholder="(000)" /> <label for="ddd">DDD</label>
+							require="ddd" placeholder="(000)" data-mask="(000)"/> <label for="ddd">DDD</label>
 					</div>
 					<div class="input-field col s4">
 						<input type="text" class="telefone" maxlength="9" size="9"
 							name="numero" id="numero" require="numero"
-							placeholder="(00000-0000)" /> <label for="numero">Numero:</label>
+							placeholder="(00000-0000)" data-mask="00000-0000"/> <label for="numero">Numero:</label>
 
 						
 					</div>
@@ -141,11 +128,18 @@
 		</div>
 	</div>
 
-
-
-
 	</main>
 	<th:block th:include="footer" />
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+	<script type="text/javascript"src="https://code.jquery.com/jquery-3.2.1.min.js"></script>				
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	 $(document).ready(function(){
+		    $('select').formSelect();
+		    
+		  });
+	</script>
 </body>
 
 

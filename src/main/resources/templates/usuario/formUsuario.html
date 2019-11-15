@@ -17,15 +17,7 @@
 <link rel="stylesheet" href="style/styleCss.css" />
 </head>
 <body>
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-
-	<script type="text/javascript">
-	 $(document).ready(function(){
-		    $('select').formSelect();
-		  });
-	</script>
+	
 	<th:block th:include="header" />
 
 	<main>
@@ -69,22 +61,22 @@
 
 			<div class="row">
 				
-				<div class="input-field col s2">
+				<div class="input-field col s3">
 					
-					<input type="text" maxlength="3" size="3" path="ddd"id="ddd" name="ddd"
-						placeholder="(xxx)" /> <label for="ddd"/>DDD</label>
+					<input type="text" maxlength="3" data-mask="(000)"size="3" path="ddd"id="ddd" name="ddd"
+						placeholder="(000)" /> <label for="ddd"/>DDD</label>
 				</div>
 
-				<div class="input-field col s4">
-					<input type="text" maxlength="9" name="numero" id="numero"
-						 placeholder="(xxxxx-xxxx)"   /> <label
+				<div class="input-field col s5">
+					<input type="text" maxlength="9" name="numero" data-mask="00000-0000"  id="numero"
+						 placeholder="Ex.:00000-0000" autocomplete="off"   /> <label
 						for="numero">Numero:</label>
 				</div>
 
 
-				<div class="input-field col s6" >
+				<div class="input-field col s4" >
 					<select id="tipo" name="tipo">
-						<option value="" disabled selected>Escolha um tipo</option>
+						<option value="" disabled selected>Escolha</option>
 						<option
 							th:each="tipo : ${T(br.com.sefaz.desafio.models.Tipo).values()}"
 							th:value="${tipo}" th:text="${tipo.getTipo()}"></option>
@@ -98,15 +90,19 @@
 			</div>
 		</form>
 	</div>
-
-
-
-
-
 	</main>
-
-
 	<th:block th:include="footer" />
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+	<script type="text/javascript"src="https://code.jquery.com/jquery-3.2.1.min.js"></script>				
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	 $(document).ready(function(){
+		    $('select').formSelect();
+		    
+		  });
+	</script>
+	
 </body>
 
 
