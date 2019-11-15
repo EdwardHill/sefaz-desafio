@@ -32,7 +32,7 @@ public class Telefone implements Serializable {
 	
 	
 	@NotNull (message = "O campo não deve estar vazio!")
-	@Size(min=10, max=10 , message="O Número precisa ter pelo menos 9 Digitos!")
+	@Size(min=12, message="O Número precisa ter pelo menos 9 Digitos!")
 	private String numero;
 	
 	@NotNull (message = "O campo não deve estar vazio!")
