@@ -34,7 +34,7 @@
 		</thead>
 	<tr th:each=" usuario : ${usuarios}">
 		
-		<td  class="center" ><b><a th:href="${(#mvc.url('UC#detalhesUsuario').arg(0, usuario.id)).build()}"<span th:text="${usuario.nome}"></span></a></b></td> 
+		<td  class="center" ><b><a th:href="${(#mvc.url('UC#detalhesUsuario').arg(0, usuario.id)).build()}"><span th:text="${usuario.nome}"></span></a></b></td> 
 		<td  ><b><span th:text="${usuario.email}"></span></b></td>
 			<td><a th:href="${(#mvc.url('UC#editUsuario').arg(0, usuario.id)).build()} "><i class=" small material-icons">edit</i></a></td>
 			<td><a th:href="${(#mvc.url('UC#deletarUsuario').arg(0, usuario.id)).build()} "><i class=" aviso small material-icons left">delete_forever</i></a></td> 
